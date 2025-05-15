@@ -8,7 +8,7 @@
 #import "SYDBBaseModel.h"
 #import <CommonCrypto/CommonCrypto.h>
 #import <objc/runtime.h>
-#import <LKDBHelper/NSObject+LKModel.h>
+
 
 @interface SYDBBaseModel ()
 
