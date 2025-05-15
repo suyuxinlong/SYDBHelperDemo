@@ -15,7 +15,6 @@
 		3736B4DE2DD5A25200F92A75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3736B4CF2DD5A25200F92A75 /* LaunchScreen.storyboard */; };
 		3736B4DF2DD5A25200F92A75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3736B4D22DD5A25200F92A75 /* Main.storyboard */; };
 		37925A372DD5A6AD00195801 /* SYDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 37925A362DD5A6AD00195801 /* SYDBHelper.m */; };
-		37925A3A2DD5A6EB00195801 /* LKDBHelperTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37925A392DD5A6EB00195801 /* LKDBHelperTestModel.m */; };
 		37925A3E2DD5A9C100195801 /* SYDBBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37925A3D2DD5A9C100195801 /* SYDBBaseModel.m */; };
 		AB444116E076C02755A6C8F5 /* Pods_SYDBHelperDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 027AE599F6C9B9BB4C7D4BCD /* Pods_SYDBHelperDemo.framework */; };
 /* End PBXBuildFile section */
@@ -36,8 +35,6 @@
 		3736B4D62DD5A25200F92A75 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		37925A352DD5A6AD00195801 /* SYDBHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYDBHelper.h; sourceTree = "<group>"; };
 		37925A362DD5A6AD00195801 /* SYDBHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYDBHelper.m; sourceTree = "<group>"; };
-		37925A382DD5A6EB00195801 /* LKDBHelperTestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LKDBHelperTestModel.h; sourceTree = "<group>"; };
-		37925A392DD5A6EB00195801 /* LKDBHelperTestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LKDBHelperTestModel.m; sourceTree = "<group>"; };
 		37925A3C2DD5A9C100195801 /* SYDBBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYDBBaseModel.h; sourceTree = "<group>"; };
 		37925A3D2DD5A9C100195801 /* SYDBBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYDBBaseModel.m; sourceTree = "<group>"; };
 		55622A6E454566ED12D35D3C /* Pods-SYDBHelperDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SYDBHelperDemo.release.xcconfig"; path = "Target Support Files/Pods-SYDBHelperDemo/Pods-SYDBHelperDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,22 +101,12 @@
 		37925A342DD5A67C00195801 /* LKDBHelper */ = {
 			isa = PBXGroup;
 			children = (
-				37925A3B2DD5A6EF00195801 /* Models */,
 				37925A352DD5A6AD00195801 /* SYDBHelper.h */,
 				37925A362DD5A6AD00195801 /* SYDBHelper.m */,
 				37925A3C2DD5A9C100195801 /* SYDBBaseModel.h */,
 				37925A3D2DD5A9C100195801 /* SYDBBaseModel.m */,
 			);
 			path = LKDBHelper;
-			sourceTree = "<group>";
-		};
-		37925A3B2DD5A6EF00195801 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				37925A382DD5A6EB00195801 /* LKDBHelperTestModel.h */,
-				37925A392DD5A6EB00195801 /* LKDBHelperTestModel.m */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		BBDFA3C7FF6B9022BE8C87D0 /* Pods */ = {
@@ -238,9 +225,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SYDBHelperDemo/Pods-SYDBHelperDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SYDBHelperDemo/Pods-SYDBHelperDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -254,7 +245,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37925A3A2DD5A6EB00195801 /* LKDBHelperTestModel.m in Sources */,
 				3736B4D82DD5A25200F92A75 /* AppDelegate.m in Sources */,
 				3736B4D92DD5A25200F92A75 /* main.m in Sources */,
 				3736B4DA2DD5A25200F92A75 /* SceneDelegate.m in Sources */,
@@ -294,7 +284,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PXQN2LE4R9;
+				DEVELOPMENT_TEAM = Z29545HWVP;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SYDBHelperDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -323,7 +314,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PXQN2LE4R9;
+				DEVELOPMENT_TEAM = Z29545HWVP;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SYDBHelperDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

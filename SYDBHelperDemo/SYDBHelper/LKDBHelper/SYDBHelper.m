@@ -23,10 +23,23 @@ static SYDBHelper *_sharedInstance;
     });
     return _sharedInstance;
 }
-
-#pragma mark - 插入
-- (BOOL)insert:(SYDBBaseModel *)model {
-    if (model == nil) return NO;
-    return [LKDBHelper insertToDB:model];
+- (void)initWithSecretKey:(NSString *)secretKey {
 }
+#pragma mark - 插入
+- (void)insert:(SYDBBaseModel *)model {
+    [self inserts:@[model]];
+}
+- (void)inserts:(NSArray *)models {
+    [LKDBHelper insertToDBWithArray:models filter:^(id  _Nonnull model, BOOL inserted, BOOL * _Nullable rollback) {
+        
+    } completed:^(BOOL allInserted) {
+        NSLog(@"【DB】insert %@", allInserted?@"success":@"failture");
+    }];
+}
+#pragma mark - 删除
+- (void)remove:(SYDBBaseModel *)model {
+    [LKDBHelper deleteToDB:model];
+}
+#pragma mark - 查找
+
 @end

@@ -11,8 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SYDBBaseModel : NSObject
 
-/// 表名，默认类名，可以重写此方法来实现指定表名
-- (NSString *)tableName;
+@property (nonatomic, assign) BOOL isaaa;
+@property (nonatomic, copy) NSString *bbb;
 
 @end
 

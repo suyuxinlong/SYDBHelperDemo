@@ -9,4 +9,5 @@ target 'SYDBHelperDemo' do
   # Pods for SYDBHelperDemo
   pod 'FMDB/SQLCipher'
   pod 'LKDBHelper'
+  pod 'WCDB.objc'
 end
