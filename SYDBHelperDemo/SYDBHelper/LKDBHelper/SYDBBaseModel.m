@@ -12,15 +12,17 @@
 
 @implementation SYDBBaseModel
 
-
+- (NSString *)tableName {
+    return NSStringFromClass(self.class);
+}
 #pragma mark - 获取所有的key，加密成MD5，当MD5发生变化，也就是数据库需要更新，数据库版本自动+1，自动更新
 - (NSString *)MD5String {
-    NSString *md5Hash;
-    
-    return md5Hash;
+    NSArray *properties = [self getAllPropertiesOfClass:self.class];
+    NSString *propertiesString = [properties componentsJoinedByString:@"/"];
+    return [self md5WithString:propertiesString];
 }
 // 递归获取类及其父类的所有属性
-+ (NSArray<NSString *> *)getAllPropertiesOfClass:(Class)cls {
+- (NSArray<NSString *> *)getAllPropertiesOfClass:(Class)cls {
     NSMutableArray *properties = [NSMutableArray array];
     while (cls != [NSObject class]) {
         unsigned int count;
@@ -34,8 +36,8 @@
     }
     return [properties copy];
 }
-+ (NSString *)md5Func {
-    const char *str = [self UTF8String];
+- (NSString *)md5WithString:(NSString *)string {
+    const char *str = [string UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
     CC_MD5(str, (CC_LONG)strlen(str), result);
     

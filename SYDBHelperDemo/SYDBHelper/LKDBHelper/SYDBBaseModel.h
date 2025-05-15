@@ -11,6 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SYDBBaseModel : NSObject
 
+/// 表名，默认类名，可以重写此方法来实现指定表名
+- (NSString *)tableName;
+
 @end
 
 NS_ASSUME_NONNULL_END

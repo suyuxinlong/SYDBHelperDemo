@@ -9,7 +9,7 @@
 
 @implementation SYDBHelper
 
-static SYLogHelper *_sharedInstance;
+static SYDBHelper *_sharedInstance;
 + (instancetype)sharedInstance {
     return [self allocWithZone:NULL];
 }
@@ -24,4 +24,9 @@ static SYLogHelper *_sharedInstance;
     return _sharedInstance;
 }
 
+#pragma mark - 插入
+- (BOOL)insert:(SYDBBaseModel *)model {
+    if (model == nil) return NO;
+    return [LKDBHelper insertToDB:model];
+}
 @end
