@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '15.0'
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
@@ -9,5 +9,6 @@ target 'SYDBHelperDemo' do
   # Pods for SYDBHelperDemo
   pod 'FMDB/SQLCipher'
   pod 'LKDBHelper'
-  pod 'WCDB.objc'
+  pod 'WHC_ModelSqliteKit'
+  pod 'WHC_Model'
 end

@@ -2,3 +2,5 @@ ${PODS_ROOT}/Target Support Files/Pods-SYDBHelperDemo/Pods-SYDBHelperDemo-framew
 ${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework
 ${BUILT_PRODUCTS_DIR}/LKDBHelper/LKDBHelper.framework
 ${BUILT_PRODUCTS_DIR}/SQLCipher/SQLCipher.framework
+${BUILT_PRODUCTS_DIR}/WHC_Model/WHC_Model.framework
+${BUILT_PRODUCTS_DIR}/WHC_ModelSqliteKit/WHC_ModelSqliteKit.framework

@@ -13,22 +13,32 @@ PODS:
   - SQLCipher/common (4.5.3)
   - SQLCipher/standard (4.5.3):
     - SQLCipher/common
+  - WHC_Model (1.7.1)
+  - WHC_ModelSqliteKit (1.3.0):
+    - WHC_ModelSqliteKit/standard (= 1.3.0)
+  - WHC_ModelSqliteKit/standard (1.3.0)
 
 DEPENDENCIES:
   - FMDB/SQLCipher
   - LKDBHelper
+  - WHC_Model
+  - WHC_ModelSqliteKit
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - FMDB
     - LKDBHelper
     - SQLCipher
+    - WHC_Model
+    - WHC_ModelSqliteKit
 
 SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   LKDBHelper: 58982cb63832355860a64fed34c381f34e535fbd
   SQLCipher: 57fa9f863fa4a3ed9dd3c90ace52315db8c0fdca
+  WHC_Model: 1bd730e64487c1905c32163fc57d60caee046f8e
+  WHC_ModelSqliteKit: dfafef3ee872dedd9823395291fc80bf37eac46d
 
-PODFILE CHECKSUM: f7667f25ad416b27621793a6d3664fcb54317ec4
+PODFILE CHECKSUM: 6957f7d28ef027b2e7c1261441be6aade1a91100
 
 COCOAPODS: 1.16.2
