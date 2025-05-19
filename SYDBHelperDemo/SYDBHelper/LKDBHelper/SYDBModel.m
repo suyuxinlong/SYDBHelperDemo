@@ -1,21 +1,21 @@
 //
-//  SYDBBaseModel.m
+//  SYDBModel.m
 //  SYDBHelperDemo
 //
 //  Created by 苏余昕龙 on 2025/5/15.
 //
 
-#import "SYDBBaseModel.h"
+#import "SYDBModel.h"
 #import <CommonCrypto/CommonCrypto.h>
 #import <objc/runtime.h>
+#import <LKDBHelper/NSObject+LKModel.h>
 
-
-@interface SYDBBaseModel ()
+@interface SYDBModel ()
 
 @property (nonatomic, copy) NSString *tableNameMD5String;
 
 @end
-@implementation SYDBBaseModel
+@implementation SYDBModel
 
 - (instancetype)init {
     if (self == [super init]) {

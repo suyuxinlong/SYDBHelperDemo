@@ -15,7 +15,7 @@
 		3736B4DE2DD5A25200F92A75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3736B4CF2DD5A25200F92A75 /* LaunchScreen.storyboard */; };
 		3736B4DF2DD5A25200F92A75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3736B4D22DD5A25200F92A75 /* Main.storyboard */; };
 		37925A372DD5A6AD00195801 /* SYDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 37925A362DD5A6AD00195801 /* SYDBHelper.m */; };
-		37925A3E2DD5A9C100195801 /* SYDBBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37925A3D2DD5A9C100195801 /* SYDBBaseModel.m */; };
+		37925A3E2DD5A9C100195801 /* SYDBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37925A3D2DD5A9C100195801 /* SYDBModel.m */; };
 		37925A412DD6453800195801 /* Model1.m in Sources */ = {isa = PBXBuildFile; fileRef = 37925A402DD6453800195801 /* Model1.m */; };
 		37925A4A2DD6457700195801 /* Model2.m in Sources */ = {isa = PBXBuildFile; fileRef = 37925A492DD6457700195801 /* Model2.m */; };
 		AB444116E076C02755A6C8F5 /* Pods_SYDBHelperDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 027AE599F6C9B9BB4C7D4BCD /* Pods_SYDBHelperDemo.framework */; };
@@ -37,8 +37,8 @@
 		3736B4D62DD5A25200F92A75 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		37925A352DD5A6AD00195801 /* SYDBHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYDBHelper.h; sourceTree = "<group>"; };
 		37925A362DD5A6AD00195801 /* SYDBHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYDBHelper.m; sourceTree = "<group>"; };
-		37925A3C2DD5A9C100195801 /* SYDBBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYDBBaseModel.h; sourceTree = "<group>"; };
-		37925A3D2DD5A9C100195801 /* SYDBBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYDBBaseModel.m; sourceTree = "<group>"; };
+		37925A3C2DD5A9C100195801 /* SYDBModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYDBModel.h; sourceTree = "<group>"; };
+		37925A3D2DD5A9C100195801 /* SYDBModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYDBModel.m; sourceTree = "<group>"; };
 		37925A3F2DD6453800195801 /* Model1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model1.h; sourceTree = "<group>"; };
 		37925A402DD6453800195801 /* Model1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model1.m; sourceTree = "<group>"; };
 		37925A482DD6457700195801 /* Model2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model2.h; sourceTree = "<group>"; };
@@ -113,8 +113,8 @@
 			children = (
 				37925A352DD5A6AD00195801 /* SYDBHelper.h */,
 				37925A362DD5A6AD00195801 /* SYDBHelper.m */,
-				37925A3C2DD5A9C100195801 /* SYDBBaseModel.h */,
-				37925A3D2DD5A9C100195801 /* SYDBBaseModel.m */,
+				37925A3C2DD5A9C100195801 /* SYDBModel.h */,
+				37925A3D2DD5A9C100195801 /* SYDBModel.m */,
 			);
 			path = LKDBHelper;
 			sourceTree = "<group>";
@@ -259,7 +259,7 @@
 				3736B4D92DD5A25200F92A75 /* main.m in Sources */,
 				3736B4DA2DD5A25200F92A75 /* SceneDelegate.m in Sources */,
 				3736B4DB2DD5A25200F92A75 /* ViewController.m in Sources */,
-				37925A3E2DD5A9C100195801 /* SYDBBaseModel.m in Sources */,
+				37925A3E2DD5A9C100195801 /* SYDBModel.m in Sources */,
 				37925A412DD6453800195801 /* Model1.m in Sources */,
 				37925A4A2DD6457700195801 /* Model2.m in Sources */,
 				37925A372DD5A6AD00195801 /* SYDBHelper.m in Sources */,

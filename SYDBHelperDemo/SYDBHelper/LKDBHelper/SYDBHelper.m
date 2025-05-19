@@ -6,10 +6,14 @@
 //
 
 #import "SYDBHelper.h"
+#import <LKDBHelper/LKDBHelper.h>
 
 @interface SYDBHelper ()
 
 @property (nonatomic, strong) LKDBHelper *dbHelper;
+
+/// 临时存储plist文件的路径
+@property (nonatomic, strong) NSString *plistPath;
 
 @end
 @implementation SYDBHelper
@@ -25,6 +29,7 @@ static SYDBHelper *_sharedInstance;
         if (!_sharedInstance) {
             _sharedInstance = [[super allocWithZone:zone] init];
             _sharedInstance.dbHelper = [[LKDBHelper getUsingLKDBHelper] initWithDBName:[NSString stringWithFormat:@"%@.db", [[NSBundle mainBundle] bundleIdentifier]]];
+            _sharedInstance.plistPath = [LKDBUtils getPathForDocuments:@"unimportant.plist" inDir:@"db"];
         }
     });
     return _sharedInstance;
@@ -35,8 +40,9 @@ static SYDBHelper *_sharedInstance;
 - (NSString *)dbMessage {
     NSMutableString *message = [[NSMutableString alloc] init];
     [message appendString:@"\n**********************************"];
-    [message appendString:@"\n本地数据库信息"];
+    [message appendString:@"\n*********  本地数据库信息  *********"];
     [message appendString:[NSString stringWithFormat:@"\n数据库地址：%@", [self dbPath]]];
+    [message appendString:[NSString stringWithFormat:@"\n临时文件地址：%@", self.plistPath]];
     [message appendString:[NSString stringWithFormat:@"\n数据库版本：%ld", (long)[self dbVersion]]];
     [message appendString:[NSString stringWithFormat:@"\n所有表名：%@", [self tableNames]]];
     [message appendString:@"\n**********************************"];
@@ -48,7 +54,7 @@ static SYDBHelper *_sharedInstance;
 - (NSInteger)dbVersion {
     __block NSInteger version = 0;
     [self.dbHelper executeDB:^(FMDatabase * _Nonnull db) {
-        FMResultSet *rs = [db executeQuery:@"PRAGMA user_version"];
+        FMResultSet *rs = [db executeQuery:@"PRAGMA user_version;"];
         if ([rs next]) {
             version = [rs intForColumnIndex:0];
         }
@@ -69,7 +75,7 @@ static SYDBHelper *_sharedInstance;
     return tableNames;
 }
 #pragma mark - 插入
-- (void)insert:(SYDBBaseModel *)model {
+- (void)insert:(SYDBModel *)model {
     [self inserts:@[model]];
 }
 - (void)inserts:(NSArray *)models {
@@ -82,7 +88,7 @@ static SYDBHelper *_sharedInstance;
     }];
 }
 #pragma mark - 删除
-- (BOOL)remove:(SYDBBaseModel *)model {
+- (BOOL)remove:(SYDBModel *)model {
     return [self removeModelClass:model.class primaryKeys:@[model.class.getPrimaryKey]];
 }
 
@@ -98,11 +104,11 @@ static SYDBHelper *_sharedInstance;
 }
 
 #pragma mark - 更新
-- (BOOL)update:(SYDBBaseModel *)model {
+- (BOOL)update:(SYDBModel *)model {
     return [model updateToDB];
 }
 
-- (BOOL)update:(SYDBBaseModel *)model where:(NSDictionary *)where {
+- (BOOL)update:(SYDBModel *)model where:(NSDictionary *)where {
     return [self.dbHelper updateToDB:model where:where];
 }
 
@@ -112,7 +118,7 @@ static SYDBHelper *_sharedInstance;
     
 }
 #pragma mark - 查找
-- (NSArray<SYDBBaseModel *> *)query:(Class)modelClass {
+- (NSArray<SYDBModel *> *)query:(Class)modelClass {
     return [modelClass searchWithWhere:nil];
 }
 
@@ -137,4 +143,28 @@ static SYDBHelper *_sharedInstance;
     return [placeholders componentsJoinedByString:@","];
 }
 
+#pragma mark - 临时存储读取
+- (BOOL)saveWithKey:(NSString *)key value:(id)value {
+    NSMutableDictionary *dataDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:self.plistPath];
+    if (dataDictionary == nil) {
+        dataDictionary = [[NSMutableDictionary alloc] init];
+    }
+    [dataDictionary setObject:value forKey:key];
+    return [dataDictionary writeToFile:self.plistPath atomically:YES];
+}
+- (id)getValueWithKey:(NSString *)key {
+    NSMutableDictionary *dataDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:self.plistPath];
+    if (dataDictionary == nil) {
+        dataDictionary = [[NSMutableDictionary alloc] init];
+    }
+    return [dataDictionary objectForKey:key];
+}
+- (BOOL)deletePlistKeys:(NSArray<NSString *> *)keys {
+    NSMutableDictionary *dataDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:self.plistPath];
+    if (dataDictionary == nil) {
+        dataDictionary = [[NSMutableDictionary alloc] init];
+    }
+    [dataDictionary removeObjectsForKeys:keys];
+    return [dataDictionary writeToFile:self.plistPath atomically:YES];
+}
 @end
